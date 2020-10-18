@@ -8,6 +8,8 @@ console.log(Object.values({ ...resolvers }));
 const server = new ApolloServer({
   typeDefs: Object.values(schemas),
   resolvers: Object.values({ ...resolvers }),
+  playground: true,
+  cors: true,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
