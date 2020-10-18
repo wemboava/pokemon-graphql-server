@@ -4,6 +4,8 @@ import pokemons from '../../data/pokemons.json';
 import { captalize } from '../utils/functions';
 
 interface PokemonFilter {
+  first: number;
+  offset: number;
   filters: {
     name: string;
     type: string;
@@ -24,18 +26,30 @@ export const PokemonResolver: IResolvers = {
     },
   },
   Query: {
-    pokemons: () => pokemons,
+    pokemons: (_root, { first = 0, offset = 1 }) => {
+      const pokemonsCopy = [...pokemons];
+      const totalCount = pokemons.length;
+      return {
+        edges: pokemonsCopy.splice(first || totalCount * (offset - 1), first || totalCount),
+        totalCount,
+      };
+    },
     pokemon: (_root, { name }: { name: string }) => {
       const pokemon = pokemons.find((poke) => poke.name.toLowerCase() === name.toLowerCase());
       return pokemon;
     },
-    searchPokemons: (_root, { filters }: PokemonFilter) => {
-      const pokemonsFiltered = pokemons.filter(
+    searchPokemons: (_root, { first = 0, offset = 1, filters }: PokemonFilter) => {
+      const pokemonsCopy = [...pokemons];
+      const pokemonsFiltered = pokemonsCopy.filter(
         (poke) =>
           poke.name.toLowerCase() === filters?.name?.toLowerCase() ||
           poke.types.includes(captalize(filters?.type || '')),
       );
-      return pokemonsFiltered;
+      const totalCount = pokemonsFiltered.length;
+      return {
+        edges: pokemonsFiltered.splice(first || totalCount * (offset - 1), first || totalCount),
+        totalCount,
+      };
     },
   },
 };

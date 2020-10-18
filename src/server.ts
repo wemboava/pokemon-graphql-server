@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-var-requires */
+import cors from 'cors';
+
 import * as resolvers from './graphql/resolvers/index';
 import * as schemas from './graphql/schemas/index';
 
@@ -12,6 +14,9 @@ const server = new ApolloServer({
 });
 
 const app = express();
+
+app.use(cors());
+
 server.applyMiddleware({ app });
 
 app.listen({ port: 4000 }, () =>

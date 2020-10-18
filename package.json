@@ -10,13 +10,16 @@
   "scripts": {
     "start:dev": "npm run build:dev",
     "build:dev": "nodemon 'src/server.ts' --exec 'ts-node' src/server.ts -e ts,graphql",
+    "build-app": "rm -rf dist/* && babel src --out-dir dist --copy-files",
     "lint": "eslint 'src/**/*.ts'",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "build": "rm -rf dist/ && tsc -P ./tsconfig.json"
   },
   "dependencies": {
     "apollo-server": "^2.18.2",
     "apollo-server-express": "^2.18.2",
     "apollo-server-lambda": "^2.18.2",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "reflect-metadata": "^0.1.13",

@@ -99,9 +99,14 @@ export const PokemonSchema = gql`
     type: String
   }
 
+  type PokemonQuery {
+    edges: [Pokemon]
+    totalCount: Int
+  }
+
   type Query {
-    pokemons: [Pokemon]
+    pokemons(first: Int, offset: Int): PokemonQuery
     pokemon(name: String!): Pokemon
-    searchPokemons(filters: PokemonFilter): [Pokemon]
+    searchPokemons(first: Int, offset: Int, filters: PokemonFilter!): PokemonQuery
   }
 `;
