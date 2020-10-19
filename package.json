@@ -2,7 +2,7 @@
   "name": "graphql-pokedex",
   "version": "1.0.0",
   "description": "pokedex with graphql and apollo server",
-  "main": "dist/index.js",
+  "main": "public/index.js",
   "repository": "http://...",
   "author": "Willian Emboava",
   "license": "MIT",
