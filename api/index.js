@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
-import app from '../index.js';
+import app from '../src/index';
 
 export default app;
