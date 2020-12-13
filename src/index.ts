@@ -1,5 +1,5 @@
 import { ApolloServer } from 'apollo-server-express';
-// import cors from 'cors';
+import cors from 'cors';
 import express from 'express';
 import { importSchema } from 'graphql-import';
 
@@ -22,7 +22,7 @@ const server = new ApolloServer({
 
 const app = express();
 
-// app.use(cors(corsOptions));
+app.use(cors());
 
 server.applyMiddleware({ app });
 
