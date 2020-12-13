@@ -1,4 +1,4 @@
-import { IResolvers } from 'apollo-server';
+import { IResolvers } from 'apollo-server-express';
 
 import types from '../../data/types.json';
 

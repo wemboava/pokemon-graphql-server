@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-express';
 
 export const PokemonSchema = gql`
   # Represents a Pokémon's attack types

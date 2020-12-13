@@ -1,4 +1,4 @@
-import { IResolvers } from 'apollo-server';
+import { IResolvers } from 'apollo-server-express';
 
 import pokemons from '../../data/pokemons.json';
 import { captalize } from '../utils/functions';
