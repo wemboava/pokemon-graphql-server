@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start:dev": "npm run build:dev",
-    "build:dev": "nodemon 'src/server.ts' --exec 'ts-node' src/server.ts -e ts,graphql",
+    "build:dev": "nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql",
     "build:app": "rm -rf dist/* && babel src --out-dir dist --copy-files",
     "lint": "eslint 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
