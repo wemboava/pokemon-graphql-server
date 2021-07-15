@@ -17,6 +17,6 @@
       "@graphql/*": ["graphql/*"]
     }
   },
-  "file": ["src/server.ts"],
+  "file": ["src/index.ts"],
   "exclude": ["public/*", "node_modules"]
 }
