@@ -41,7 +41,7 @@ const server = new ApolloServer({
   typeDefs: Object.values(schemas),
   resolvers: Object.values({ ...resolvers }),
   playground: true,
-  introspection: true,
+  // introspection: true,
   cors: true,
 });
 
